@@ -183,7 +183,7 @@ fail_ref:
 	return NULL;
 }
 
-static void rate_control_free(struct rate_control_ref *ctrl_ref)
+void rate_control_free(struct rate_control_ref *ctrl_ref)
 {
 	ctrl_ref->ops->free(ctrl_ref->priv);
 

@@ -23,6 +23,7 @@ struct rate_control_ref {
 	struct rate_control_ops *ops;
 	void *priv;
 };
+void rate_control_free(struct rate_control_ref *ctrl_ref);
 
 void rate_control_get_rate(struct ieee80211_sub_if_data *sdata,
 			   struct sta_info *sta,

@@ -169,7 +169,7 @@ static void __sta_info_free(struct ieee80211_local *local,
 {
 	if (sta->rate_ctrl) {
 		rate_control_free_sta(sta);
-		rate_control_put(sta->rate_ctrl);
+		rate_control_free(sta->rate_ctrl);
 	}
 
 #ifdef CONFIG_MAC80211_VERBOSE_DEBUG
