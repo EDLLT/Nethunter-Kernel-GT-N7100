@@ -223,7 +223,7 @@ static int sta_prepare_rate_control(struct ieee80211_local *local,
 }
 
 struct sta_info *sta_info_alloc(struct ieee80211_sub_if_data *sdata,
-				u8 *addr, gfp_t gfp)
+				const u8 *addr, gfp_t gfp)
 {
 	struct ieee80211_local *local = sdata->local;
 	struct sta_info *sta;
@@ -235,7 +235,6 @@ struct sta_info *sta_info_alloc(struct ieee80211_sub_if_data *sdata,
 		return NULL;
 
 	spin_lock_init(&sta->lock);
-	spin_lock_init(&sta->flaglock);
 	INIT_WORK(&sta->drv_unblock_wk, sta_unblock);
 	INIT_WORK(&sta->ampdu_mlme.work, ieee80211_ba_session_work);
 	mutex_init(&sta->ampdu_mlme.mtx);
@@ -244,6 +243,8 @@ struct sta_info *sta_info_alloc(struct ieee80211_sub_if_data *sdata,
 	sta->local = local;
 	sta->sdata = sdata;
 	sta->last_rx = jiffies;
+
+	sta->sta_state = IEEE80211_STA_NONE;
 
 	do_posix_clock_monotonic_gettime(&uptime);
 	sta->last_connected = uptime.tv_sec;
@@ -262,8 +263,10 @@ struct sta_info *sta_info_alloc(struct ieee80211_sub_if_data *sdata,
 		 */
 		sta->timer_to_tid[i] = i;
 	}
-	skb_queue_head_init(&sta->ps_tx_buf);
-	skb_queue_head_init(&sta->tx_filtered);
+	for (i = 0; i < IEEE80211_NUM_ACS; i++) {
+		skb_queue_head_init(&sta->ps_tx_buf[i]);
+		skb_queue_head_init(&sta->tx_filtered[i]);
+	}
 
 	for (i = 0; i < NUM_RX_DATA_QUEUES; i++)
 		sta->last_seq_ctrl[i] = cpu_to_le16(USHRT_MAX);
