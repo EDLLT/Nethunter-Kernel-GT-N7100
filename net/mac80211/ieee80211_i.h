@@ -922,9 +922,10 @@ struct ieee80211_local {
 	struct mutex sta_mtx;
 	spinlock_t tim_lock;
 	unsigned long num_sta;
-	struct list_head sta_list;
+	struct list_head sta_list, sta_pending_list;
 	struct sta_info __rcu *sta_hash[STA_HASH_SIZE];
 	struct timer_list sta_cleanup;
+	struct work_struct sta_finish_work;
 	int sta_generation;
 
 	struct sk_buff_head pending[IEEE80211_MAX_QUEUES];
