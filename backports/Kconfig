@@ -1,0 +1,36 @@
+config BACKPORT_INTEGRATE
+	bool
+	def_bool y
+
+config BACKPORT_DIR
+	string
+	default "backports/"
+
+config BACKPORT_VERSION
+	string
+	default "v4.4-rc2-1-2-gd3195f3a"
+
+config BACKPORT_KERNEL_VERSION
+	string
+	default "v4.4-rc2-0-g1ec218373b8e"
+
+config BACKPORT_KERNEL_NAME
+	string
+	default "Linux"
+
+menuconfig BACKPORT_LINUX
+	bool "Backport Linux v4.4-rc2-0-g1ec218373b8e (backports v4.4-rc2-1-2-gd3195f3a)"
+	default n
+	---help---
+	  Enabling this will let give you the opportunity to use features and
+	  drivers backported from Linux v4.4-rc2-0-g1ec218373b8e
+	  on the kernel your are using. This is experimental and you should
+	  say no unless you'd like to help test things or want to help debug
+	  this should we run into any issues.
+
+if BACKPORT_LINUX
+
+source "$BACKPORT_DIR/Kconfig.versions"
+source "$BACKPORT_DIR/Kconfig.sources"
+
+endif # BACKPORT_LINUX
