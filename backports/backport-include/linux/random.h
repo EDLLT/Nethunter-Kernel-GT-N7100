@@ -14,9 +14,12 @@ static inline void add_device_randomness(const void *buf, unsigned int size)
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(3,8,0)
 /* backports 496f2f9 */
-// #define prandom_seed(_seed)		srandom32(_seed)
-// #define prandom_u32()			random32()
-// #define prandom_u32_state(_state)	prandom32(_state)
+/*
+	For compatibility
+*/
+#define random32 prandom_u32
+#define srandom32 prandom_seed
+#define prandom32 prandom_u32_state
 /* backport 6582c665d6b882dad8329e05749fbcf119f1ab88 */
 #define prandom_bytes LINUX_BACKPORT(prandom_bytes)
 void prandom_bytes(void *buf, int bytes);

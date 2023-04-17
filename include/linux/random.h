@@ -88,13 +88,6 @@ void prandom_reseed_late(void);
 u32 prandom_u32_state(struct rnd_state *);
 void prandom_bytes_state(struct rnd_state *state, void *buf, int nbytes);
 
-/*
-	For compatibility
-*/
-#define random32 prandom_u32
-#define srandom32 prandom_seed
-#define prandom32 prandom_u32_state
-
 
 /*
  * Handle minimum values for seeds
