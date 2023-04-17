@@ -1,0 +1,25 @@
+Symbol: BACKPORT_MAC80211 [=y]                                                                                                          				  	            │  
+  │ Type  : tristate                                                                                                                            					    │  
+  │ Prompt: Generic IEEE 802.11 Networking Stack (mac80211)                                                                                      					    │  
+  │   Defined at backports//net/mac80211/Kconfig:1                                                                                                					    │  
+  │   Depends on: BACKPORT_LINUX [=y] && !MAC80211 [=n] && BACKPORT_CFG80211 [=y] && CRYPTO [=y] && CRYPTO_ARC4 [=y] && CRYPTO_AES [=y] && CRYPTO_CCM [=y] && CRYPTO_GCM [=y] && CRC32 [=y] │  
+  │   Location:                                                                                                                            					            │  
+  │     -> Backport Linux v4.4-rc2-0-g1ec218373b8e (backports v4.4-rc2-1-2-gd3195f3a) (BACKPORT_LINUX [=y])
+  
+  
+  Symbol: BACKPORT_CFG80211_WEXT [=n]                                                                                                             │  
+  │ Type  : boolean                                                                                                                               │  
+  │ Prompt: cfg80211 wireless extensions compatibility                                                                                            │  
+  │   Defined at backports//net/wireless/Kconfig:180                                                                                              │  
+  │   Depends on: BACKPORT_LINUX [=y] && !CFG80211_WEXT [=n] && BACKPORT_CFG80211 [=y] && WEXT_CORE [=n] && !CFG80211_WEXT_EXPORT                 │  
+  │   Location:                                                                                                                                   │  
+  │     -> Backport Linux v4.4-rc2-0-g1ec218373b8e (backports v4.4-rc2-1-2-gd3195f3a) (BACKPORT_LINUX [=y])                                       │  
+  │       -> cfg80211 - wireless configuration API (BACKPORT_CFG80211 [=y])
+  
+  Symbol: WEXT_CORE [=n]                                                                                                                          │  
+  │ Type  : boolean                                                                                                                               │  
+  │   Selected by: CFG80211_WEXT [=n] && NET [=y] && WIRELESS [=y] && CFG80211 [=n]
+  
+    Symbol: BACKPORT_WEXT_CORE [=n]                                                                                                               │  
+  │ Type  : boolean                                                                                                                               │  
+  │   Selected by: NET [=y] && WIRELESS [=y] && BACKPORT_CFG80211 [=n]
