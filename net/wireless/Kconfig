@@ -3,7 +3,7 @@ config WIRELESS_EXT
 
 config WEXT_CORE
 	def_bool y
-	depends on CFG80211_WEXT || WIRELESS_EXT
+	depends on CFG80211_WEXT || WIRELESS_EXT || BACKPORT_CFG80211_WEXT
 
 config WEXT_PROC
 	def_bool y

@@ -184,6 +184,7 @@ config BACKPORT_CFG80211_WEXT
 	depends on NET
 	depends on WIRELESS
 	depends on BACKPORT_CFG80211
+	select WEXT_CORE
 	default y if BACKPORT_CFG80211_WEXT_EXPORT
 	help
 	  Enable this option if you need old userspace for wireless
