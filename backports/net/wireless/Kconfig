@@ -181,7 +181,9 @@ config BACKPORT_CFG80211_WEXT
 	bool "cfg80211 wireless extensions compatibility" if !CFG80211_WEXT_EXPORT
 	depends on !CFG80211_WEXT
 	depends on BACKPORT_CFG80211
-	depends on WEXT_CORE
+	depends on NET
+	depends on WIRELESS
+	depends on BACKPORT_CFG80211
 	default y if BACKPORT_CFG80211_WEXT_EXPORT
 	help
 	  Enable this option if you need old userspace for wireless
