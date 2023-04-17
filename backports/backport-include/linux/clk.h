@@ -15,7 +15,7 @@
 #if LINUX_VERSION_CODE < KERNEL_VERSION(3,6,0)
 
 #ifndef CONFIG_COMMON_CLK
-
+#define CONFIG_COMMON_CLK
 /*
  * Whoopsie!
  *
