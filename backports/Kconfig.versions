@@ -186,5 +186,13 @@ config BACKPORT_KERNEL_3_97
     def_bool y
 config BACKPORT_KERNEL_3_98
     def_bool y
+config BACKPORT_KERNEL_4_0
+    def_bool y
+config BACKPORT_KERNEL_4_1
+    def_bool y
 config BACKPORT_KERNEL_4_2
+    def_bool y
+config BACKPORT_KERNEL_4_3
+    def_bool y
+config BACKPORT_KERNEL_4_4
     def_bool y
