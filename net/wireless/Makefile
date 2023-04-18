@@ -4,10 +4,12 @@ obj-$(CONFIG_LIB80211_CRYPT_WEP) += lib80211_crypt_wep.o
 obj-$(CONFIG_LIB80211_CRYPT_CCMP) += lib80211_crypt_ccmp.o
 obj-$(CONFIG_LIB80211_CRYPT_TKIP) += lib80211_crypt_tkip.o
 
-obj-$(CONFIG_WEXT_CORE) += wext-core.o
-obj-$(CONFIG_WEXT_PROC) += wext-proc.o
-obj-$(CONFIG_WEXT_SPY) += wext-spy.o
-obj-$(CONFIG_WEXT_PRIV) += wext-priv.o
+#Can't have these and the backported one run at the same time
+
+#obj-$(CONFIG_WEXT_CORE) += wext-core.o
+#obj-$(CONFIG_WEXT_PROC) += wext-proc.o
+#obj-$(CONFIG_WEXT_SPY) += wext-spy.o
+#obj-$(CONFIG_WEXT_PRIV) += wext-priv.o
 
 cfg80211-y += core.o sysfs.o radiotap.o util.o reg.o scan.o nl80211.o
 cfg80211-y += mlme.o ibss.o sme.o chan.o ethtool.o mesh.o
