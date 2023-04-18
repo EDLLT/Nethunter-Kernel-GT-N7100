@@ -442,11 +442,6 @@ extern void wireless_send_event(struct net_device *	dev,
 				unsigned int		cmd,
 				union iwreq_data *	wrqu,
 				const char *		extra);
-extern void wireless_send_event_BUTIDRATHERBEDULL(struct net_device *	dev,
-				unsigned int		cmd,
-				union iwreq_data *	wrqu,
-				const char *		extra);
-#define wireless_squiggles_wiggles wireless_send_event_BUTIDRATHERBEDULL
 
 /* We may need a function to send a stream of events to user space.
  * More on that later... */

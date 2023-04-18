@@ -208,7 +208,7 @@ void ___cfg80211_scan_done(struct cfg80211_registered_device *rdev,
 	if (wdev->netdev && !request->aborted) {
 		memset(&wrqu, 0, sizeof(wrqu));
 
-		wireless_squiggles_wiggles(wdev->netdev, SIOCGIWSCAN, &wrqu, NULL);
+		wireless_send_event(wdev->netdev, SIOCGIWSCAN, &wrqu, NULL);
 	}
 #endif
 

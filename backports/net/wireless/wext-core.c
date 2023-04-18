@@ -7,7 +7,6 @@
  *
  * (As all part of the Linux kernel, this file is GPL)
  */
-#warning WEXT-CORE.C IN BACKPORTS IS RUNNNNNNNNING
 #include <linux/kernel.h>
 #include <linux/netdevice.h>
 #include <linux/rtnetlink.h>
