@@ -152,7 +152,7 @@ config BACKPORT_BPAUTO_RHASHTABLE
 	bool
 	depends on !BPAUTO_RHASHTABLE
 	# current API of rhashtable was introduced in version 4.1
-	depends on KERNEL_4_1
+	#depends on KERNEL_4_1
 	# not very nice - but better than always having it
 	default y if BACKPORT_MAC80211
 	#h-file linux/rhashtable.h
