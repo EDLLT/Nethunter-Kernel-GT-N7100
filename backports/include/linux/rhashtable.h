@@ -1,9 +1,7 @@
 /* Automatically created during backport process */
 #ifndef CONFIG_BACKPORT_BPAUTO_RHASHTABLE
-#warning OPTION 1
 #include_next <linux/rhashtable.h>
 #else
-#warning OPTION 2
 #undef lockdep_rht_mutex_is_held
 #define lockdep_rht_mutex_is_held LINUX_BACKPORT(lockdep_rht_mutex_is_held)
 #undef lockdep_rht_bucket_is_held
