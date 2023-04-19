@@ -7,7 +7,7 @@ config BCM4330
 
 config BCM4334
 	tristate "Broadcom 4334 wireless cards support"
-	depends on WLAN
+	depends on WLAN || BACKPORT_WLAN
 	---help---
 	  This module adds support for wireless adapters based on
 	  Broadcom 4334 chipset.
