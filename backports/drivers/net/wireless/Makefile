@@ -60,5 +60,3 @@ obj-$(CONFIG_BACKPORT_BRCMSMAC)	+= brcm80211/
 
 obj-$(CONFIG_BACKPORT_CW1200)	+= cw1200/
 obj-$(CONFIG_BACKPORT_RSI_91X)	+= rsi/
-
-obj-$(CONFIG_BCM4334)	+= ../../../../drivers/net/wireless/bcmdhd/
