@@ -91,7 +91,7 @@ config BACKPORT_BRCM_TRACING
 config BACKPORT_BRCMDBG
 	bool "Broadcom driver debug functions"
 	depends on !BRCMDBG
-	depends on BACKPORT_BRCMSMAC || BRCMFMAC
+	depends on BACKPORT_BRCMSMAC || BACKPORT_BRCMFMAC
 	depends on WANT_DEV_COREDUMP
 	---help---
 	  Selecting this enables additional code for debug purposes.
